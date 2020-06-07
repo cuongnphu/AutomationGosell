@@ -2,6 +2,7 @@ package com.gosell.test;
 
 import com.gosell.helper.PropertiesHelper;
 import com.kirwa.nxgreport.NXGReports;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -32,24 +33,16 @@ public abstract class BaseTest {
         BrowserType type = BrowserType.valueOf(browser.toUpperCase());
         switch (type){
             case CHROME:
-                if(OS.contains("win")){
-                    System.setProperty("webdriver.chrome.driver", "drivers//chromedriver.exe");
-                }else if(OS.contains("nix") || OS.contains("nux") || OS.contains("aix")){
-                    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-                }
+                WebDriverManager.chromedriver().setup();
                 webDriver = new ChromeDriver();
                 break;
             case FIREFOX:
-                System.setProperty("webdriver.gecko.driver", "drivers\\geckodriver.exe");    
-                DesiredCapabilities cap = DesiredCapabilities.firefox();
-                //cap.setCapability("marionette", true);
-                webDriver = new FirefoxDriver(cap);
+                WebDriverManager.firefoxdriver().setup();
+                webDriver = new FirefoxDriver();
                 break;
             case IE:
-                System.setProperty("webdriver.ie.driver", "drivers\\IEDriverServer_32.exe");
-                DesiredCapabilities capFF = new DesiredCapabilities();
-                capFF.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
-                webDriver = new InternetExplorerDriver(capFF);
+                WebDriverManager.iedriver().setup();
+                webDriver = new InternetExplorerDriver();
                 break;
             default:
                 break;
