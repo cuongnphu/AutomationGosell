@@ -1,5 +1,4 @@
-package com.gosell.test.home;
-
+package com.gosell.test.simplelogin;
 
 import com.gosell.test.BaseTest;
 import cucumber.api.CucumberOptions;
@@ -10,16 +9,16 @@ import org.testng.annotations.Test;
 
 
 @CucumberOptions(
-        features="src/test/resources/features/home/home.feature",
+        features="src/test/resources/features/login/logout.feature",
         glue={"com.gosell.stepdefs"},
         format= {"pretty","html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json",
                 "rerun:target/cucumber-reports/re-run.txt"}
 )
-public class HomeTest extends BaseTest {
+public class LogoutTest extends BaseTest {
 
-    @Test(description = "TC: Verify Home page",dataProvider = "features")
-    public void verifyHomePageContent(CucumberFeatureWrapper cFeature){
+    @Test(description="TC: Logout GoSELL",dataProvider="features")
+    public void logoutGoSELL(CucumberFeatureWrapper cFeature) {
         testRunner = new TestNGCucumberRunner(this.getClass());
         testRunner.runCucumber(cFeature.getCucumberFeature());
     }

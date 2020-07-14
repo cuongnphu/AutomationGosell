@@ -1,67 +1,43 @@
 package com.gosell.test.simplelogin;
 
-import com.gosell.helper.ExcelHelper;
-import com.gosell.pageobject.BasePagePO;
-import com.gosell.pageobject.common.HeaderPO;
-import com.gosell.pageobject.simplelogin.LoginPO;
-import com.gosell.pageobject.utils.GenericUtils;
 import com.gosell.test.BaseTest;
-import com.kirwa.nxgreport.NXGReports;
-import com.kirwa.nxgreport.logging.LogAs;
-import org.openqa.selenium.html5.LocalStorage;
-import org.openqa.selenium.html5.WebStorage;
-import org.openqa.selenium.remote.Augmenter;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import cucumber.api.CucumberOptions;
+import cucumber.api.testng.CucumberFeatureWrapper;
+import cucumber.api.testng.TestNGCucumberRunner;
+import org.testng.annotations.*;
 
 
-public class LoginTest extends BaseTest {
+@CucumberOptions(
+        features="src/test/resources/features/login/login.feature",
+        glue={"com.gosell.stepdefs"},
+        format= {"pretty","html:target/cucumber-reports/cucumber-pretty",
+                "json:target/cucumber-reports/CucumberTestReport.json",
+                "rerun:target/cucumber-reports/re-run.txt"}
+)
+public class LoginTest extends BaseTest{
 
-    private LoginPO loginPO;
-    private HeaderPO headerPO;
-
-    @Test(priority = 1, description = "Test positive test case login ")
-    public void login(){
-        String email = ExcelHelper.readExcelData(testData, "Login", 1, 1);
-        String password = ExcelHelper.readExcelData(testData, "Login", 1, 2);
-        loginPO = new LoginPO(webDriver);
-        loginPO.switchLanguage(isEnglish);
-        loginPO.verifyContentPage();
-        loginPO.login(email,password);
-
-        // Initialize WebStore & LocalStore to get accessToken
-        WebStorage webStorage = (WebStorage) new Augmenter().augment(webDriver);
-        LocalStorage localStorage = webStorage.getLocalStorage();
-
-        // Verify accessToken value
-        Assert.assertNotNull(localStorage.getItem("accessToken"));
+    @Test(description="TC: LoginGoSELL",dataProvider="features")
+    public void loginGoSELL(CucumberFeatureWrapper cFeature) {
+        testRunner = new TestNGCucumberRunner(this.getClass());
+        testRunner.runCucumber(cFeature.getCucumberFeature());
     }
 
-    @Test(priority = 2, description = "Test positive logout")
-    public void logout(){
-        headerPO = new HeaderPO(webDriver);
-        headerPO.switchLanguage(isEnglish);
-        GenericUtils.wait(3000);
-
-        // Click Logout button
-        headerPO.logout();
-        GenericUtils.wait(3000);
-
-        // Verify Logout successfully
-        loginPO.verifyContentPage();
+    @DataProvider(name="features")
+    public Object[][] getFeatures() {
+        return testRunner.provideFeatures();
     }
 
-    @Test(priority = 3, description = "Test negative test case login")
-    public void loginWithNullEmailAndPassword(){
-        NXGReports.addStep("Test Login with null Email & Password", LogAs.PASSED,null);
-        loginPO.login("","");
-        GenericUtils.wait(1000);
 
-        // Verify Error message display
-        loginPO.validateElement(loginPO.getEleErrorUsername(),"This field must not be empty", BasePagePO.Element_Type.TEXT_VALUE);
-        loginPO.validateElement(loginPO.getEleErrorPassword(),"This field must not be empty", BasePagePO.Element_Type.TEXT_VALUE);
-    }
-
+//    @Test(priority = 3, description = "Test negative test case login")
+//    public void loginWithNullEmailAndPassword(){
+//        NXGReports.addStep("Test Login with null Email & Password", LogAs.PASSED,null);
+//        loginPO.login("","");
+//        GenericUtils.wait(1000);
+//
+//        // Verify Error message display
+//        loginPO.validateElement(loginPO.getEleErrorUsername(),"This field must not be empty", BasePagePO.Element_Type.TEXT_VALUE);
+//        loginPO.validateElement(loginPO.getEleErrorPassword(),"This field must not be empty", BasePagePO.Element_Type.TEXT_VALUE);
+//    }
 
 
 }
