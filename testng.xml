@@ -6,21 +6,24 @@
         <listener class-name="com.kirwa.nxgreport.listners.NXGTestListner"></listener>
     </listeners>
 
-    <parameter name="browser" value="CHROME"/>
-    <parameter name="url" value="http://admin.unisell.vn/"/>
-    <parameter name="isEnglishLanguage" value="true" />
-
     <test name="Login Test" preserve-order="true">
         <classes>
             <class name="com.gosell.test.simplelogin.LoginTest" />
+            <class name="com.gosell.test.simplelogin.LogoutTest" />
         </classes>
     </test>
 
-<!--    <test name="Home page Test" preserve-order="true">-->
-<!--        <classes>-->
-<!--            <class name="com.gosell.test.home.HomeTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Home page Test" preserve-order="true">
+        <classes>
+            <class name="com.gosell.test.home.HomeTest" />
+        </classes>
+    </test>
+
+    <test name="Product page Test" preserve-order="true">
+        <classes>
+            <class name="com.gosell.test.product.ProductTest" />
+        </classes>
+    </test>
 
 </suite>
 

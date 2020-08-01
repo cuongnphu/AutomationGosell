@@ -8,7 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public abstract class BaseLoginPO<T extends BasePagePO<T>> extends BasePagePO<T> {
+
+
+public abstract class BaseLoginPO extends BasePagePO{
 
     @FindBy(xpath = ".//span[text()='English']")
     private WebElement eleEnglish;
@@ -29,10 +31,10 @@ public abstract class BaseLoginPO<T extends BasePagePO<T>> extends BasePagePO<T>
 
     public void switchLanguage(boolean isEnglish){
         if(isEnglish){
-            NXGReports.addStep("Switch to English", LogAs.PASSED,null);
+            NXGReports.addStep("Switch to English", false);
             eleEnglish.click();
         }else {
-            NXGReports.addStep("Switch to Vietnamese", LogAs.PASSED,null);
+            NXGReports.addStep("Switch to Vietnamese",false);
             eleVietnamese.click();
         }
     }

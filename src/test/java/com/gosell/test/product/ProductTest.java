@@ -1,4 +1,4 @@
-package com.gosell.test.home;
+package com.gosell.test.product;
 
 
 import com.gosell.test.BaseTest;
@@ -8,18 +8,17 @@ import cucumber.api.testng.TestNGCucumberRunner;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-
 @CucumberOptions(
-        features="src/test/resources/features/home/home.feature",
+        features="src/test/resources/features/product/product.feature",
         glue={"com.gosell.stepdefs"},
         format= {"pretty","html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json",
                 "rerun:target/cucumber-reports/re-run.txt"}
 )
-public class HomeTest extends BaseTest {
+public class ProductTest extends BaseTest {
 
-    @Test(description = "TC: Verify Home page",dataProvider = "features")
-    public void verifyHomePageContent(CucumberFeatureWrapper cFeature){
+    @Test(description = "TC: Verify Product page",dataProvider = "features")
+    public void verifyProductPageContent(CucumberFeatureWrapper cFeature){
         testRunner = new TestNGCucumberRunner(this.getClass());
         testRunner.runCucumber(cFeature.getCucumberFeature());
     }
@@ -28,4 +27,5 @@ public class HomeTest extends BaseTest {
     public Object[][] getFeatures() {
         return testRunner.provideFeatures();
     }
+
 }

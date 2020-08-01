@@ -4,7 +4,9 @@ import com.gosell.library.GenericLib;
 import com.kirwa.nxgreport.NXGReports;
 import com.kirwa.nxgreport.logging.LogAs;
 import com.kirwa.nxgreport.selenium.reports.CaptureScreen;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 
@@ -13,7 +15,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
-public abstract class BasePagePO<T extends BasePagePO<T>> extends LoadableComponent<T> {
+public abstract class BasePagePO {
 
     protected WebDriver webDriver;
     public static boolean IS_ENGLISH_LANGUAGE = true;
@@ -112,6 +114,7 @@ public abstract class BasePagePO<T extends BasePagePO<T>> extends LoadableCompon
             case NOT_EXIST:
                 webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
                 try{
+                    webElement.click();
                     throw new AssertionError(expected + " is still displayed.");
                 }catch (NoSuchElementException e){
                     NXGReports.addStep(expected + " is not exist.", LogAs.PASSED,null);
