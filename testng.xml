@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite thread-count="2" parallel="tests" name="GoSELL Automation Testing" verbose="1">
+<suite thread-count="1" parallel="tests" name="GoSELL Automation Testing" verbose="1">
     <listeners>
         <listener class-name="com.gosell.listener.TestListener"></listener>
         <listener class-name="com.kirwa.nxgreport.listners.NXGTestListner"></listener>
