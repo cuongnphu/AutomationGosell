@@ -13,17 +13,17 @@
         </classes>
     </test>
 
-    <test name="Home page Test" preserve-order="true">
-        <classes>
-            <class name="com.gosell.test.home.HomeTest" />
-        </classes>
-    </test>
+<!--    <test name="Home page Test" preserve-order="true">-->
+<!--        <classes>-->
+<!--            <class name="com.gosell.test.home.HomeTest" />-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Product page Test" preserve-order="true">
-        <classes>
-            <class name="com.gosell.test.product.ProductTest" />
-        </classes>
-    </test>
+<!--    <test name="Product page Test" preserve-order="true">-->
+<!--        <classes>-->
+<!--            <class name="com.gosell.test.product.ProductTest" />-->
+<!--        </classes>-->
+<!--    </test>-->
 
 </suite>
 

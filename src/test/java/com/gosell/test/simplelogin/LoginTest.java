@@ -27,17 +27,4 @@ public class LoginTest extends BaseTest{
         return testRunner.provideFeatures();
     }
 
-
-//    @Test(priority = 3, description = "Test negative test case login")
-//    public void loginWithNullEmailAndPassword(){
-//        NXGReports.addStep("Test Login with null Email & Password", LogAs.PASSED,null);
-//        loginPO.login("","");
-//        GenericUtils.wait(1000);
-//
-//        // Verify Error message display
-//        loginPO.validateElement(loginPO.getEleErrorUsername(),"This field must not be empty", BasePagePO.Element_Type.TEXT_VALUE);
-//        loginPO.validateElement(loginPO.getEleErrorPassword(),"This field must not be empty", BasePagePO.Element_Type.TEXT_VALUE);
-//    }
-
-
 }
