@@ -2,8 +2,8 @@ package com.gosell.pageobject.home;
 
 
 import com.gosell.pageobject.BasePagePO;
-import com.kirwa.nxgreport.NXGReports;
-import com.kirwa.nxgreport.logging.LogAs;
+//import com.kirwa.nxgreport.NXGReports;
+//import com.kirwa.nxgreport.logging.LogAs;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,9 +27,9 @@ public class HomePO extends BasePagePO {
     }
 
     public void verifyContentPage() {
-        NXGReports.addStep("Verify: Welcome to Gosell Title", false);
+//        NXGReports.addStep("Verify: Welcome to Gosell Title", false);
         validateElement(eleWelcomeTitle, "Welcome to Gosell Title", Element_Type.DISPLAYED);
-        NXGReports.addStep("Verify: What to do next", false);
+//        NXGReports.addStep("Verify: What to do next", false);
         validateElement(eleToDoTitle, "What to do next", Element_Type.TEXT_VALUE);
     }
 

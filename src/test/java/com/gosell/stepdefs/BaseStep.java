@@ -1,7 +1,7 @@
 package com.gosell.stepdefs;
 
 
-import com.kirwa.nxgreport.NXGReports;
+//import com.kirwa.nxgreport.NXGReports;
 import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
 
@@ -48,7 +48,7 @@ public abstract class BaseStep {
 
     public void openGoSELLWebsite(WebDriver webDriver){
         // Set webdriver NXGReport
-        NXGReports.setWebDriver(webDriver);
+//        NXGReports.setWebDriver(webDriver);
 
         webDriver.get(url);
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

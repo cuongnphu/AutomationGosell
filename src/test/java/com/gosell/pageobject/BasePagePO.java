@@ -1,9 +1,9 @@
 package com.gosell.pageobject;
 
 import com.gosell.library.GenericLib;
-import com.kirwa.nxgreport.NXGReports;
-import com.kirwa.nxgreport.logging.LogAs;
-import com.kirwa.nxgreport.selenium.reports.CaptureScreen;
+//import com.kirwa.nxgreport.NXGReports;
+//import com.kirwa.nxgreport.logging.LogAs;
+//import com.kirwa.nxgreport.selenium.reports.CaptureScreen;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -52,12 +52,11 @@ public abstract class BasePagePO {
                 try {
                     Assert.assertTrue(webElement.isDisplayed(),expected + " is not displayed. ");
                 }catch (NoSuchElementException e){
-                    NXGReports.addStep(expected + " is not found", LogAs.FAILED,
-                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//                    NXGReports.addStep(expected + " is not found", LogAs.FAILED, new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
                     throw new AssertionError(e.getMessage());
                 }catch (AssertionError e){
-                    NXGReports.addStep(e.getMessage(), LogAs.FAILED,
-                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//                    NXGReports.addStep(e.getMessage(), LogAs.FAILED,
+//                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
                     throw new AssertionError(e.getMessage());
                 }
                 break;
@@ -65,12 +64,12 @@ public abstract class BasePagePO {
                 try {
                     Assert.assertTrue(webElement.isEnabled(), expected + " is not enabled.");
                 }catch (NoSuchElementException e){
-                    NXGReports.addStep(expected + " is not found",LogAs.FAILED,
-                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//                    NXGReports.addStep(expected + " is not found",LogAs.FAILED,
+//                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
                     throw new AssertionError(e.getMessage());
                 }catch (AssertionError e){
-                    NXGReports.addStep(e.getMessage(), LogAs.FAILED,
-                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//                    NXGReports.addStep(e.getMessage(), LogAs.FAILED,
+//                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
                     throw new AssertionError(e.getMessage());
                 }
                 break;
@@ -78,12 +77,12 @@ public abstract class BasePagePO {
                 try {
                     Assert.assertTrue(webElement.isSelected(), expected + " is not selected  ");
                 }catch (NoSuchElementException e){
-                    NXGReports.addStep(expected + " is not found",LogAs.FAILED,
-                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//                    NXGReports.addStep(expected + " is not found",LogAs.FAILED,
+//                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
                     throw new AssertionError(e.getMessage());
                 }catch (AssertionError e){
-                    NXGReports.addStep(e.getMessage(), LogAs.FAILED,
-                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//                    NXGReports.addStep(e.getMessage(), LogAs.FAILED,
+//                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
                     throw new AssertionError(e.getMessage());
                 }
                 break;
@@ -91,12 +90,12 @@ public abstract class BasePagePO {
                 try {
                     Assert.assertFalse(webElement.isDisplayed(), expected + " is not hidden.");
                 }catch (NoSuchElementException e){
-                    NXGReports.addStep(expected + " is not found",LogAs.FAILED,
-                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//                    NXGReports.addStep(expected + " is not found",LogAs.FAILED,
+//                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
                     throw new AssertionError(e.getMessage());
                 }catch (AssertionError e){
-                    NXGReports.addStep(e.getMessage(), LogAs.FAILED,
-                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//                    NXGReports.addStep(e.getMessage(), LogAs.FAILED,
+//                            new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
                     throw new AssertionError(e.getMessage());
                 }
                 break;
@@ -104,10 +103,10 @@ public abstract class BasePagePO {
                 try {
                     Assert.assertEquals(getText(webElement), expected);
                 }catch (NoSuchElementException e){
-                    NXGReports.addStep(expected + " is not found", LogAs.FAILED,new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//                    NXGReports.addStep(expected + " is not found", LogAs.FAILED,new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
                     throw new AssertionError(e.getMessage());
                 }catch (AssertionError e){
-                    NXGReports.addStep(e.getMessage(), LogAs.FAILED, new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//                    NXGReports.addStep(e.getMessage(), LogAs.FAILED, new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
                     throw new AssertionError(e.getMessage());
                 }
                 break;
@@ -117,7 +116,7 @@ public abstract class BasePagePO {
                     webElement.click();
                     throw new AssertionError(expected + " is still displayed.");
                 }catch (NoSuchElementException e){
-                    NXGReports.addStep(expected + " is not exist.", LogAs.PASSED,null);
+//                    NXGReports.addStep(expected + " is not exist.", LogAs.PASSED,null);
                 }
                 break;
             default:
@@ -187,8 +186,8 @@ public abstract class BasePagePO {
             WebDriverWait wait = new WebDriverWait(webDriver, timeOut);
             wait.until(ExpectedConditions.elementToBeClickable(webElement));
         }catch (TimeoutException e){
-            NXGReports.addStep(e.getMessage(), LogAs.FAILED,
-                    new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//            NXGReports.addStep(e.getMessage(), LogAs.FAILED,
+//                    new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
             throw new AssertionError(e.getMessage());
         }
     }
@@ -204,8 +203,8 @@ public abstract class BasePagePO {
             WebDriverWait wait = new WebDriverWait(webDriver, timeOut);
             wait.until(ExpectedConditions.textToBePresentInElement(webElement, text));
         }catch (TimeoutException e){
-            NXGReports.addStep(e.getMessage(), LogAs.FAILED,
-                    new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//            NXGReports.addStep(e.getMessage(), LogAs.FAILED,
+//                    new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
             throw new AssertionError(e.getMessage());
         }
     }
@@ -220,8 +219,8 @@ public abstract class BasePagePO {
             WebDriverWait wait = new WebDriverWait(webDriver, timeOut);
             wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
         }catch (TimeoutException e){
-            NXGReports.addStep(e.getMessage(), LogAs.FAILED,
-                    new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//            NXGReports.addStep(e.getMessage(), LogAs.FAILED,
+//                    new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
             throw new AssertionError(e.getMessage());
         }
     }
@@ -264,8 +263,8 @@ public abstract class BasePagePO {
 //            }
             Assert.assertEquals(actualValue, expected);
         }catch (AssertionError e){
-            NXGReports.addStep(e.getMessage(), LogAs.FAILED,
-                    new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
+//            NXGReports.addStep(e.getMessage(), LogAs.FAILED,
+//                    new CaptureScreen(CaptureScreen.ScreenshotOf.BROWSER_PAGE));
             throw new AssertionError(e.getMessage());
         }
     }

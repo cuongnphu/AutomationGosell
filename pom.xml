@@ -42,45 +42,45 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
                 <version>2.5.2</version>
-                <executions>
-                    <execution>
-                        <id>install-external</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <file>${basedir}/jars/NXGReport.jar</file>
-                            <repositoryLayout>default</repositoryLayout>
-                            <groupId>com.mylib</groupId>
-                            <artifactId>NXGReport</artifactId>
-                            <version>0.0.1</version>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>install-external</id>-->
+<!--                        <phase>clean</phase>-->
+<!--                        <configuration>-->
+<!--                            <file>${basedir}/jars/NXGReport.jar</file>-->
+<!--                            <repositoryLayout>default</repositoryLayout>-->
+<!--                            <groupId>com.mylib</groupId>-->
+<!--                            <artifactId>NXGReport</artifactId>-->
+<!--                            <version>0.0.1</version>-->
+<!--                            <packaging>jar</packaging>-->
+<!--                            <generatePom>true</generatePom>-->
 
-                            <file>${basedir}/jars/customizer.jar</file>
-                            <repositoryLayout>default</repositoryLayout>
-                            <groupId>com.mylib</groupId>
-                            <artifactId>customizer</artifactId>
-                            <version>0.0.1</version>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
+<!--                            <file>${basedir}/jars/customizer.jar</file>-->
+<!--                            <repositoryLayout>default</repositoryLayout>-->
+<!--                            <groupId>com.mylib</groupId>-->
+<!--                            <artifactId>customizer</artifactId>-->
+<!--                            <version>0.0.1</version>-->
+<!--                            <packaging>jar</packaging>-->
+<!--                            <generatePom>true</generatePom>-->
+<!--                        </configuration>-->
 
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                </executions>
+<!--                        <goals>-->
+<!--                            <goal>install-file</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
             </plugin>
         </plugins>
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>com.mylib</groupId>
-            <artifactId>NXGReport</artifactId>
-            <version>0.0.1</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/jars/NXGReport.jar</systemPath>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.mylib</groupId>-->
+<!--            <artifactId>NXGReport</artifactId>-->
+<!--            <version>0.0.1</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${project.basedir}/jars/NXGReport.jar</systemPath>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>

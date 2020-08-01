@@ -1,8 +1,8 @@
 package com.gosell.pageobject.simplelogin;
 
 import com.gosell.pageobject.utils.GenericUtils;
-import com.kirwa.nxgreport.NXGReports;
-import com.kirwa.nxgreport.logging.LogAs;
+//import com.kirwa.nxgreport.NXGReports;
+//import com.kirwa.nxgreport.logging.LogAs;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.html5.LocalStorage;
@@ -45,20 +45,20 @@ public class LoginPO extends BaseLoginPO{
 
 
     public void verifyContentPage() {
-        NXGReports.addStep("Verify logo GoSELL is displayed", false);
+//        NXGReports.addStep("Verify logo GoSELL is displayed", false);
         validateElement(logoGosell,"logo Gosell", Element_Type.DISPLAYED);
-        NXGReports.addStep("Verify welcome login text is displayed",false);
+//        NXGReports.addStep("Verify welcome login text is displayed",false);
         validateElement(sloLogin,"Welcome back, please login",Element_Type.TEXT_VALUE);
     }
 
     public void login(String username, String password){
-        NXGReports.addStep("Enter email: " + username, false);
+//        NXGReports.addStep("Enter email: " + username, false);
         txtEmail.sendKeys(username);
 
-        NXGReports.addStep("Enter password: " + password,false);
+//        NXGReports.addStep("Enter password: " + password,false);
         txtPassword.sendKeys(password);
 
-        NXGReports.addStep("Click Login button",false);
+//        NXGReports.addStep("Click Login button",false);
         btnLogin.click();
 
         GenericUtils.wait(10000);
@@ -70,7 +70,7 @@ public class LoginPO extends BaseLoginPO{
         LocalStorage localStorage = webStorage.getLocalStorage();
 
         // Verify accessToken value
-        NXGReports.addStep("Verify accessToken is created",false);
+//        NXGReports.addStep("Verify accessToken is created",false);
         Assert.assertNotNull(localStorage.getItem("accessToken"));
     }
 

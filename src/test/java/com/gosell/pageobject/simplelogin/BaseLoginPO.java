@@ -1,8 +1,8 @@
 package com.gosell.pageobject.simplelogin;
 
 import com.gosell.pageobject.BasePagePO;
-import com.kirwa.nxgreport.NXGReports;
-import com.kirwa.nxgreport.logging.LogAs;
+//import com.kirwa.nxgreport.NXGReports;
+//import com.kirwa.nxgreport.logging.LogAs;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,10 +31,10 @@ public abstract class BaseLoginPO extends BasePagePO{
 
     public void switchLanguage(boolean isEnglish){
         if(isEnglish){
-            NXGReports.addStep("Switch to English", false);
+//            NXGReports.addStep("Switch to English", false);
             eleEnglish.click();
         }else {
-            NXGReports.addStep("Switch to Vietnamese",false);
+//            NXGReports.addStep("Switch to Vietnamese",false);
             eleVietnamese.click();
         }
     }

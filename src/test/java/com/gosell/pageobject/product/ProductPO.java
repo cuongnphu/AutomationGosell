@@ -1,7 +1,7 @@
 package com.gosell.pageobject.product;
 
 import com.gosell.pageobject.BasePagePO;
-import com.kirwa.nxgreport.NXGReports;
+//import com.kirwa.nxgreport.NXGReports;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,12 +26,12 @@ public class ProductPO extends BasePagePO {
 
 
     public void goToProductPage(){
-        NXGReports.addStep("Click Product menu",false);
+//        NXGReports.addStep("Click Product menu",false);
         menuProduct.click();
     }
 
     public void verifyProductPage(){
-        NXGReports.addStep("Verify Product page content by Create Product button display",false);
+//        NXGReports.addStep("Verify Product page content by Create Product button display",false);
         validateElement(btnCreateProduct,"Create Product",Element_Type.TEXT_VALUE);
     }
 
